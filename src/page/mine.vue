@@ -1,16 +1,17 @@
 <template>
   <div class="login bg-white" style="overflow:hidden;">
-    登录
+会员
   </div>
 </template>
 
 <script>
 export default {
-  name: 'login',
+  name: 'list',
   data () {
     return {}
   },
   methods: {
+
   }
 }
 </script>
