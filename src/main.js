@@ -1,28 +1,38 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import axios from 'axios'
 import App from './App'
 import router from './router'
+import store from './store'
+
+Vue.prototype.$axios = axios
+axios.defaults.headers.post['Content-Type'] = 'application/json'
+Vue.config.productionTip = false
+
 router.beforeEach((to, from, next) => {
+  // const user = store.state.user ? store.state.user : window.sessionStorage.getItem('user')
   if (to.matched.some(record => record.meta.requireLogin)) { // 判断该路由是否需要登录权限
-    if (sessionStorage.getItem('loginInfo')) { // 判断当前用户的登录信息loginInfo是否存在
+    if (sessionStorage.getItem('user')) { // 判断当前用户的登录信息loginInfo是否存在
+      console.log(1)
       next()
     } else {
+      console.log(2)
       next({
-        // path: '/login'
+        path: '/login'
       })
     }
   } else {
+    console.log(3)
     next()
   }
 })
 
-Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  store,
+  router
 })

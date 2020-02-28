@@ -1,0 +1,10 @@
+{"data":[
+    {
+        "path": "/mine",
+        "name": "mine",
+        "component": "import('../page/mine')",
+        "meta": {
+          "requireLogin": true
+        }
+      }
+]}

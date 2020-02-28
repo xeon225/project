@@ -25,6 +25,7 @@ routerContext.keys().forEach(key => {
     fullPath: key.slice(2)
   })
 })
+
 export default {
   routerContext,
   routerAdd
