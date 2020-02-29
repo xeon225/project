@@ -14,7 +14,7 @@ router.beforeEach((to, from, next) => {
   // const user = store.state.user ? store.state.user : window.sessionStorage.getItem('user')
   if (to.matched.some(record => record.meta.requireLogin)) { // 判断该路由是否需要登录权限
     if (sessionStorage.getItem('user')) { // 判断当前用户的登录信息loginInfo是否存在
-      console.log(1)
+      console.log(sessionStorage.getItem('user'), 1)
       next()
     } else {
       console.log(2)
@@ -23,7 +23,7 @@ router.beforeEach((to, from, next) => {
       })
     }
   } else {
-    console.log(3)
+    console.log(sessionStorage.getItem('user'), 3)
     next()
   }
 })
